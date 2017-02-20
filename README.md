@@ -1,5 +1,5 @@
 # Redmine API
-Use Redmine API in browsers and NodeJS without depenency.
+Use Redmine API in browsers and NodeJS
 
 ## Install
 ```sh
@@ -28,6 +28,7 @@ api.query('issues')
 [See here](docs/README.md) for full documentation
 
 ## Implemented
+- [x]  API Requester class ([docs](docs/README.md))
 - [x]  Issues ([docs](docs/issues.md))
 - [x]  Projects ([docs](docs/projects.md))
 - [x]  Time entries ([docs](docs/time_entries.md))

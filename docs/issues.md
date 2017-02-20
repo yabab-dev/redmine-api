@@ -2,23 +2,22 @@
 
 See : http://www.redmine.org/projects/redmine/wiki/Rest_Issues
 
-## `query(config = {})`
+### `query(config = {})`
 
 
-## `queryAll(config = {})`
+### `queryAll(config = {})`
 
 
-## `get(id)`
+### `get(id)`
 
 
-## `create(data)`
+### `create(data)`
 
 
-## `update(id, data)`
+### `update(id, data)`
 
 
-## `delete(id)`
+### `delete(id)`
 
 
-## `getLastRawResponse()`
-
+### `getLastRawResponse()`

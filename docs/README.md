@@ -25,6 +25,11 @@ api.projects // ...
 api.time_entries // ...
 ```
 
+See :
+- Issues ([docs](issues.md))
+- Projects ([docs](projects.md))
+- Time entries ([docs](time_entries.md))
+
 ## class `RedmineAPI`
 Core of this library.
 
