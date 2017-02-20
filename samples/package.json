@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@chymz/redmine-api": "*",
+    "node-fetch": "^1.6.3"
+  }
+}

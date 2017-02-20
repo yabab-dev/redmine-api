@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>RedmineAPI sample</title>
+</head>
+<body>
+
+  <script src="../dist/redmine-api.js"></script>
+  <script>
+    var api = new RedmineAPI('https://www.redmine.org');
+    api.projects.query()
+      .then(function(data) {
+        console.log(data);
+      });
+  </script>
+</body>
+</html>
