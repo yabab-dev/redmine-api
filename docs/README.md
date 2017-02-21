@@ -13,7 +13,7 @@ const api = new RedmineAPI('https://domain.com', { key: 'your_api_key' });
 You can access to ressources shortcuts via its name :
 
 ```js
-api.issues.get(13)
+api.issues.get(13) // fetch issues
   .then(data => {
     // ...
   })
@@ -21,32 +21,12 @@ api.issues.get(13)
     // ...
   });
 
-api.projects // ...
-api.time_entries // ...
+api.projects // for projects
+api.time_entries // for time entries
 ```
 
-See :
-- Issues ([docs](issues.md))
-- Projects ([docs](projects.md))
-- Time entries ([docs](time_entries.md))
-
-## class `RedmineAPI`
-Core of this library.
-
-### `constructor(url, config)`
-
-### `request(ressource, config = {})`
-
-### `query(ressource, config = {})`
-
-### `queryAll(ressource, config = {})`
-
-### `get(ressource, id)`
-
-### `create(ressource, data)`
-
-### `update(ressource, id, data)`
-
-### `delete(ressource, id)`
-
-### `switchUser(login)`
+## API Docs
+- [RedmineAPI](redmine-api.md)
+- [Issues](issues.md)
+- [Projects](projects.md)
+- [Time entries](time_entries.md)
