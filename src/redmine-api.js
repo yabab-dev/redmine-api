@@ -4,11 +4,16 @@ import {
 } from './utils';
 import ressources from './ressources/index';
 
+// Export ressources classes
+export var Issues = require('./ressources/issues');
+export var Projects = require('./ressources/issues');
+export var TimeEntries = require('./ressources/issues');
+
 /**
  * RedmineAPI class
  * Connect and do requests on redmine api
  */
-export default class RedmineAPI {
+export class RedmineAPI {
 
   constructor(url, config = {}) {
     if (!url) throw new Error('[RedmineAPI] `url` on constructor is not defined');
@@ -19,7 +24,7 @@ export default class RedmineAPI {
 
     // Shortcuts to ressources classes
     for (let name in ressources) {
-      let ressource = new ressources[name](this, name);
+      let ressource = new ressources[name](this);
       Object.defineProperty(this, name, {
         get: () => ressource
       });
