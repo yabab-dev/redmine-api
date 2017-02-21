@@ -5,6 +5,7 @@ import {
 import resources from './resources/index';
 
 // Export resources classes
+export var Resource = require('./resources/resource');
 export var Issues = require('./resources/issues');
 export var Projects = require('./resources/issues');
 export var TimeEntries = require('./resources/issues');

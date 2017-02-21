@@ -1,4 +1,4 @@
-# `resource`
+# `Resource`
 
 See [Usage](#Usage)
 
@@ -35,10 +35,10 @@ api.issues.query()
 
 **Manually**
 ```js
-import { RedmineAPI, Issues } from '@chymz/redmine-api';
+import { RedmineAPI, Issues, Resource } from '@chymz/redmine-api';
 
 const api = new RedmineAPI('...');
-const res = new Issues(api);
+const res = new Issues(api); // or new Resource(api, 'issues')
 
 issues.query()
   .then(data => {
