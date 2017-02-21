@@ -1,4 +1,4 @@
-# `AbstractRessource`
+# `resource`
 
 See [Usage](#Usage)
 
@@ -16,7 +16,7 @@ See [Usage](#Usage)
 
 ### `getLastRawResponse()`
 
-## Usage
+## <a name="Usage"></a>Usage
 
 **Use shortcuts**
 ```js

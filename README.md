@@ -25,10 +25,10 @@ api.query('issues')
 ```
 
 ## Docs
-[See here](docs/README.md) for full documentation
+[See here](docs/README.md) for documentation
 
 ## Implemented
-- [x]  API Requester class ([docs](docs/README.md))
+- [x]  API Requester class ([docs](docs/redmine-api.md))
 - [x]  Issues ([docs](docs/issues.md))
 - [x]  Projects ([docs](docs/projects.md))
 - [x]  Time entries ([docs](docs/time_entries.md))

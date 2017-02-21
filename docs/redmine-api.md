@@ -3,18 +3,18 @@ Core of this library.
 
 ### `constructor(url, config)`
 
-### `request(ressource, config = {})`
+### `request(resource, config = {})`
 
-### `query(ressource, config = {})`
+### `query(resource, config = {})`
 
-### `queryAll(ressource, config = {})`
+### `queryAll(resource, config = {})`
 
-### `get(ressource, id)`
+### `get(resource, id)`
 
-### `create(ressource, data)`
+### `create(resource, data)`
 
-### `update(ressource, id, data)`
+### `update(resource, id, data)`
 
-### `delete(ressource, id)`
+### `delete(resource, id)`
 
 ### `switchUser(login)`

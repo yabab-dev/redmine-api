@@ -10,7 +10,7 @@ const api = new RedmineAPI('https://domain.com', { key: 'your_api_key' });
 ```
 
 ## Shortcuts
-You can access to ressources shortcuts via its name :
+You can access to resources shortcuts via its name :
 
 ```js
 api.issues.get(13) // fetch issues

@@ -1,6 +1,6 @@
-import Abstract from './abstract';
+import Resource from './resource';
 
-export default class Projects extends Abstract {
+export default class Projects extends Resource {
   constructor(api) {
     super(api, 'projects');
   }

@@ -2,12 +2,12 @@ import {
   base64encode,
   querysring
 } from './utils';
-import ressources from './ressources/index';
+import resources from './resources/index';
 
-// Export ressources classes
-export var Issues = require('./ressources/issues');
-export var Projects = require('./ressources/issues');
-export var TimeEntries = require('./ressources/issues');
+// Export resources classes
+export var Issues = require('./resources/issues');
+export var Projects = require('./resources/issues');
+export var TimeEntries = require('./resources/issues');
 
 /**
  * RedmineAPI class
@@ -22,22 +22,22 @@ export class RedmineAPI {
 
     if(!config.headers) config.headers = new Headers();
 
-    // Shortcuts to ressources classes
-    for (let name in ressources) {
-      let ressource = new ressources[name](this);
+    // Shortcuts to resources classes
+    for (let name in resources) {
+      let resource = new resources[name](this);
       Object.defineProperty(this, name, {
-        get: () => ressource
+        get: () => resource
       });
     }
 
     this.config = config;
   }
 
-  request(ressource, config = {}) {
+  request(resource, config = {}) {
     config = Object.assign({}, this.config, config);
 
-    // Full url to ressource
-    let url = this.url + '/' + ressource + '.json';
+    // Full url to resource
+    let url = this.url + '/' + resource + '.json';
 
     // HTTP Method
     if (!config.method) config.method = 'GET';
@@ -75,15 +75,15 @@ export class RedmineAPI {
       });
   }
 
-  query(ressource, config = {}) {
-    return this.request(ressource, config);
+  query(resource, config = {}) {
+    return this.request(resource, config);
   }
 
-  queryAll(ressource, config = {}) {
+  queryAll(resource, config = {}) {
     config.search       = config.search || {};
     config.search.limit = config.search.limit || 25;
 
-    return this.query(ressource, config)
+    return this.query(resource, config)
       .then(response => {
         const max = Math.ceil(response.total_count / config.search.limit);
 
@@ -92,33 +92,33 @@ export class RedmineAPI {
         // Make a request for each page
         for (let index = 1; index < max; index++) {
           config.search.offset = index * config.search.limit;
-          requests.push(this.query(ressource, config));
+          requests.push(this.query(resource, config));
         }
 
         return requests;
       });
   }
 
-  get(ressource, id) {
-    return this.request(ressource + '/' + id);
+  get(resource, id) {
+    return this.request(resource + '/' + id);
   }
 
-  create(ressource, data) {
-    return this.request(ressource, {
+  create(resource, data) {
+    return this.request(resource, {
       method: 'POST',
       data: data,
     });
   }
 
-  update(ressource, id, data) {
-    return this.request(ressource + '/' + id, {
+  update(resource, id, data) {
+    return this.request(resource + '/' + id, {
       method: 'PUT',
       data: data,
     });
   }
 
-  delete(ressource, id) {
-    return this.request(ressource + '/' + id, {
+  delete(resource, id) {
+    return this.request(resource + '/' + id, {
       method: 'DELETE',
     });
   }
