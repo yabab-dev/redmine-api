@@ -51,3 +51,8 @@ export function querysring (obj) {
       .stringify(obj);
   }
 }
+
+// Clone plain object
+export function cloneObject(obj) {
+  return JSON.parse(JSON.stringify(obj));
+}
