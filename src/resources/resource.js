@@ -1,3 +1,7 @@
+import {
+  clone
+} from '../utils';
+
 const resourcesSingular = {
   'time_entries': 'time_entry',
   'news': 'news',
@@ -23,7 +27,10 @@ export default class AbstractResource {
     config.search       = config.search || {};
     config.search.limit = config.search.limit || 25;
 
-    return this.query(this.resource, config)
+    let countConfig = clone_(config);
+    countConfig.search.limit = 1;
+
+    return this.query(this.resource, countConfig)
       .then(response => {
         this.lastRaw = response;
         const max = Math.ceil(response.total_count / config.search.limit);
@@ -32,8 +39,9 @@ export default class AbstractResource {
 
         // Make a request for each page
         for (let index = 1; index < max; index++) {
-          config.search.offset = index * config.search.limit;
-          requests.push(this.query(this.resource, config));
+          let requestConfig = clone_(config);
+          requestConfig.search.offset = index * config.search.limit;
+          requests.push([this.resource, requestConfig]);
         }
 
         return requests;

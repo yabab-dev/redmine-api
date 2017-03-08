@@ -1,7 +1,8 @@
 import {
   base64encode,
   querysring,
-  cloneObject,
+  clone,
+  extend,
 } from './utils';
 import resources from './resources/index';
 
@@ -36,7 +37,7 @@ export class RedmineAPI {
   }
 
   request(resource, config = {}) {
-    config = Object.assign({}, this.config, config);
+    config = extend({}, this.config, config);
 
     // Full url to resource
     let url = this.url + '/' + resource + '.json';
@@ -85,10 +86,10 @@ export class RedmineAPI {
     config.search       = config.search || {};
     config.search.limit = config.search.limit || 25;
 
-    let firstConfig = cloneObject(config);
-    firstConfig.search.limit = 1;
+    let countConfig = clone(config);
+    countConfig.search.limit = 1;
 
-    return this.query(resource, firstConfig)
+    return this.query(resource, countConfig)
       .then(response => {
         const max = Math.ceil(response.total_count / config.search.limit);
 
@@ -96,7 +97,7 @@ export class RedmineAPI {
 
         // Make a request for each page
         for (let index = 1; index < max; index++) {
-          let rowConfig = cloneObject(config);
+          let rowConfig = clone(config);
           rowConfig.search.offset = index * config.search.limit;
           requests.push([resource, config]);
         }

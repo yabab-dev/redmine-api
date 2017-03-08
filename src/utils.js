@@ -1,28 +1,4 @@
-// Object.assin polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
-if (typeof Object.assign != 'function') {
-  Object.assign = function (target, varArgs) { // .length of function is 2
-    'use strict';
-    if (target == null) { // TypeError if undefined or null
-      throw new TypeError('Cannot convert undefined or null to object');
-    }
-
-    var to = Object(target);
-
-    for (var index = 1; index < arguments.length; index++) {
-      var nextSource = arguments[index];
-
-      if (nextSource != null) { // Skip over if undefined or null
-        for (var nextKey in nextSource) {
-          // Avoid bugs when hasOwnProperty is shadowed
-          if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
-            to[nextKey] = nextSource[nextKey];
-          }
-        }
-      }
-    }
-    return to;
-  };
-}
+import npmExtend from './extend';
 
 // Check if browser env
 export function isBrowser() {
@@ -52,7 +28,10 @@ export function querysring (obj) {
   }
 }
 
-// Clone plain object
-export function cloneObject(obj) {
-  return JSON.parse(JSON.stringify(obj));
+export function extend(target, ...sources) {
+  return npmExtend(true, target, ...sources);
+}
+
+export function clone(object) {
+  return extend({}, object);
 }
