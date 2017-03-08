@@ -17,7 +17,7 @@ rollup.rollup({
       }),
     ],
   })
-  .then(function (bundle) {
+  .then(bundle => {
     bundle.write({
       format: "umd",
       moduleName: "RedmineAPI",
@@ -25,3 +25,6 @@ rollup.rollup({
       sourceMap: true
     });
   })
+  .catch(err => {
+    console.log(err.stack);
+  });

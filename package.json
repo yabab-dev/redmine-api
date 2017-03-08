@@ -6,6 +6,8 @@
   "jsnext:main": "src/index.js",
   "scripts": {
     "build": "node build/build && node build/build.min",
+    "build:dev": "node build/build",
+    "build:min": "node build/build.min",
     "prepublish": "npm run build"
   },
   "repository": {
