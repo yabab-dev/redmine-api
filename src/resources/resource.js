@@ -30,7 +30,7 @@ export default class AbstractResource {
     let countConfig = clone(config);
     countConfig.search.limit = 1;
 
-    return this.query(this.resource, countConfig)
+    return this.api.query(this.resource, countConfig)
       .then(response => {
         this.lastRaw = response;
         const max = Math.ceil(response.total_count / config.search.limit);

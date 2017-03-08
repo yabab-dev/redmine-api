@@ -33,7 +33,7 @@ var isPlainObject = function isPlainObject(obj) {
 	return typeof key === 'undefined' || hasOwn.call(obj, key);
 };
 
-export default function(...args) {
+export default function extend(...args) {
 	var options, name, src, copy, copyIsArray, clone,
 		target = args[0],
 		i = 1,
