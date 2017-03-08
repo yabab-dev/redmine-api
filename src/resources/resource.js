@@ -3,7 +3,7 @@ const resourcesSingular = {
   'news': 'news',
 };
 
-export default class Abstractresource {
+export default class AbstractResource {
 
   constructor(api, resource) {
     this.api = api;
