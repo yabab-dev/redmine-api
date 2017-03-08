@@ -4,13 +4,8 @@ import {
   clone,
   extend,
 } from './utils';
-import resources from './resources/index';
 
-// Export resources classes
-export var Resource = require('./resources/resource');
-export var Issues = require('./resources/issues');
-export var Projects = require('./resources/issues');
-export var TimeEntries = require('./resources/issues');
+import resources from './resources/index';
 
 /**
  * RedmineAPI class
@@ -26,8 +21,8 @@ export class RedmineAPI {
     if(!config.headers) config.headers = new Headers();
 
     // Shortcuts to resources classes
-    for (let name in resources) {
-      let resource = new resources[name](this);
+    for (let name in resources.shortcuts) {
+      let resource = new resources.shortcuts[name](this);
       Object.defineProperty(this, name, {
         get: () => resource
       });
@@ -139,3 +134,8 @@ export class RedmineAPI {
   }
 
 }
+
+// Export sub classes
+export var Issues = resources.Issues;
+export var Projects = resources.Projects;
+export var TimeEntries = resources.TimeEntries;

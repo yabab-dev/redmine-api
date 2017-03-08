@@ -1,9 +1,14 @@
-import issues from './issues';
-import projects from './projects';
-import time_entries from './time-entries';
+import Issues from './issues';
+import Projects from './projects';
+import TimeEntries from './time-entries';
 
 export default {
-  issues,
-  projects,
-  time_entries,
+  shortcuts: {
+    issues: Issues,
+    projects: Projects,
+    time_entries: TimeEntries,
+  },
+  Issues,
+  Projects,
+  TimeEntries,
 };
