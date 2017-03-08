@@ -27,7 +27,7 @@ export default class AbstractResource {
     config.search       = config.search || {};
     config.search.limit = config.search.limit || 25;
 
-    let countConfig = clone_(config);
+    let countConfig = clone(config);
     countConfig.search.limit = 1;
 
     return this.query(this.resource, countConfig)
@@ -39,7 +39,7 @@ export default class AbstractResource {
 
         // Make a request for each page
         for (let index = 1; index < max; index++) {
-          let requestConfig = clone_(config);
+          let requestConfig = clone(config);
           requestConfig.search.offset = index * config.search.limit;
           requests.push([this.resource, requestConfig]);
         }
