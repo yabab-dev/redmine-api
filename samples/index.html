@@ -8,7 +8,9 @@
 
   <script src="../dist/redmine-api.js"></script>
   <script>
-    var api = new RedmineAPI('https://www.redmine.org');
+    var API = RedmineAPI.RedmineAPI;
+
+    var api = new API('https://www.redmine.org');
     api.projects.query()
       .then(function(data) {
         console.log(data);
