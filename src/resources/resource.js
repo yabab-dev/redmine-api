@@ -41,7 +41,7 @@ export default class AbstractResource {
         for (let index = 1; index < max; index++) {
           let requestConfig = clone(config);
           requestConfig.search.offset = index * config.search.limit;
-          requests.push([this.resource, requestConfig]);
+          requests.push([requestConfig]);
         }
 
         return requests;
